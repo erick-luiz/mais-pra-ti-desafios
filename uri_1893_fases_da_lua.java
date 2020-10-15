@@ -1,19 +1,14 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String args[]) throws IOException {
-    // Tratar e defender entrada
-		var leitorDeTela = new LeitorDeTela();
-		String entrada = leitorDeTela.leProximaLinha();
-        String valores[] = entrada.split(" ");
 
-        var percentualDosDiasAnteriores = Integer.valueOf(valores[0]);
-        var percentualDaNoiteAnterior = Integer.valueOf(valores[1]);
-        
-        // Strategy e encapsular comportamento
-        
+    public static void main(String[] args) throws IOException {
+ 
+        Scanner scanner = new Scanner(System.in);
+        int percentualDosDiasAnteriores = scanner.nextInt();
+        int percentualDaNoiteAnterior = scanner.nextInt();
+
         if(percentualDaNoiteAnterior >= 97){
             System.out.println("cheia");
             return;
@@ -30,19 +25,6 @@ public class Main {
         }
         
         System.out.println("crescente");
-	}
-}
-
-class LeitorDeTela {
-
-	private BufferedReader in;
-
-	public LeitorDeTela() {
-		InputStreamReader ir = new InputStreamReader(System.in);
-		this.in = new BufferedReader(ir);
-	}
-
-	public String leProximaLinha() throws IOException {
-		return this.in.readLine();
-	}
+    }
+ 
 }
