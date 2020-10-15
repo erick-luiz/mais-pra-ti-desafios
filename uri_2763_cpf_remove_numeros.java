@@ -1,40 +1,12 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
-/**
-* Dada a entrada de um cpf no formato XXX.YYY.ZZZ-AA deve ser impresso em tela apenas as sequencias numericas pulando a linha após cada impressão
-* XXX \n YYY \n ZZZ \n AA
-*/
+public class Main5{
 
-public class Main{
-
-    public static void main(String []args) throws IOException{
-         
-        var leitorDeTela = new LeitorDeTela();
+    public static void main(String []args) {
         
-        String[] cpf =  removeNumerosDoCPF(leitorDeTela.leProximaLinha());
-        for(int i = 0; i < cpf.length; i++){
-            System.out.println(cpf[i]);
-        }
-    }
-     
-    public static String[] removeNumerosDoCPF(String cpf){
-        return cpf.split("[.|\\-]");
-    }
-
-}
-
-class LeitorDeTela {
-
-    private BufferedReader in;
-
-    public LeitorDeTela(){
-        InputStreamReader ir = new InputStreamReader(System.in);
-        this.in = new BufferedReader(ir);
-    }
+        Scanner scanner = new Scanner(System.in);
+        String cpf = scanner.next();
+        System.out.println(cpf.replaceAll("[.|\\-]","\n"));
     
-    public String leProximaLinha() throws IOException {
-        return this.in.readLine();
     }
 }
